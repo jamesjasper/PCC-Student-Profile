@@ -14,7 +14,6 @@ class CreateStudents < ActiveRecord::Migration[6.1]
       t.string :barangay
       t.integer :zipcode
       t.string :street
-      t.string :phone_number
       t.string :mother_name
       t.string :father_name
       t.string :spouse
