@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Students</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Last name</th>
+      <th>Course</th>
+      <th>Year level</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Region</th>
+      <th>Province</th>
+      <th>Municipality</th>
+      <th>Barangay</th>
+      <th>Zipcode</th>
+      <th>Street</th>
+      <th>Phone number</th>
+      <th>Mother name</th>
+      <th>Father name</th>
+      <th>Spouse</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.first_name %></td>
+        <td><%= student.middle_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.course %></td>
+        <td><%= student.year_level %></td>
+        <td><%= student.email %></td>
+        <td><%= student.phone_number %></td>
+        <td><%= student.region %></td>
+        <td><%= student.province %></td>
+        <td><%= student.municipality %></td>
+        <td><%= student.barangay %></td>
+        <td><%= student.zipcode %></td>
+        <td><%= student.street %></td>
+        <td><%= student.phone_number %></td>
+        <td><%= student.mother_name %></td>
+        <td><%= student.father_name %></td>
+        <td><%= student.spouse %></td>
+        <td><%= student.user_id %></td>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student', new_student_path %>
