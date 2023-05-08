@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'static_pages/about'
+  root 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#delete'
+  get '/about', to: 'static_pages#about'
   resources :students
   resources :users
-  root 'users#index'
 end
