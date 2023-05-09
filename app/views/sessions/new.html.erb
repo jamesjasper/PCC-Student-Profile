@@ -1,25 +1,26 @@
 <%= provide(:title, "Login") %>
-<div class="container-fluid row d-flex align-items-center justify-content-center">
-  <h3 class="justify-content-center d-flex align-items-center">Login</h3>
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-      <div class="mb-3">
-        <%= f.label :email %>
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+             class="img-fluid" alt="Sample image">
       </div>
-      <div class="mb-3">
-        <%= f.email_field :email, class: 'form-control' %>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+          <div class="form-outline mb-4">
+            <%= f.label :email, class: 'form-label' %>
+            <%= f.email_field :email, class: 'form-control form-control-lg' %>
+          </div>
+          <div class="form-outline mb-3">
+            <%= f.label :password, class:'form-label' %>
+            <%= f.password_field :password, class: 'form-control form-control-lg' %>
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+              <%= f.submit "Login", class: "btn btn-primary btn-lg", style: "padding-left: 2.5rem; padding-right: 2.5rem;" %>
+          </div>
+        <% end %>
       </div>
-      <div class="mb-3">
-        <%= f.label :password %>
-      </div>
-      <div class="mb-3">
-        <%= f.password_field :password, class: 'form-control' %>
-      </div>
-      <div class="d-flex justify-content-center gap-3 border-1 mb-3">
-        <span class="align-items-center gap-lg-3">
-          <%= f.submit "Log in", class: "btn btn-primary" %>
-        </span>
-      </div>
-    <% end %>
+    </div>
   </div>
-</div>
+</section>
