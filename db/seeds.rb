@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+User.create!(username: 'admin', email: 'jamesjasper.villamor@gmail.com',
+             password: 'password', password_confirmation: 'password1234',
+             first_name: 'James Jasper',
+             last_name: 'Villamor', role: 'admin')
 
 
 99.times do
