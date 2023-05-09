@@ -1,0 +1,43 @@
+.divider {
+  &:after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }
+  &:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+
+
+
+.gradient-custom {
+  background: #f093fb;
+  background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+  background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+}
+.card-registration {
+  .select-input.form-control[readonly] {
+    &:not([disabled]) {
+      font-size: 1rem;
+      line-height: 2.15;
+      padding-left: .75em;
+      padding-right: .75em;
+    }
+  }
+  .select-arrow {
+    top: 13px;
+  }
+}

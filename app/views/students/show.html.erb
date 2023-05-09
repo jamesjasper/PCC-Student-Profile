@@ -1,94 +1,164 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @student.first_name %>
-</p>
-
-<p>
-  <strong>Middle name:</strong>
-  <%= @student.middle_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @student.last_name %>
-</p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @student.course %>
-</p>
-
-<p>
-  <strong>Year level:</strong>
-  <%= @student.year_level %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @student.email %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @student.phone_number %>
-</p>
-
-<p>
-  <strong>Region:</strong>
-  <%= @student.region %>
-</p>
-
-<p>
-  <strong>Province:</strong>
-  <%= @student.province %>
-</p>
-
-<p>
-  <strong>Municipality:</strong>
-  <%= @student.municipality %>
-</p>
-
-<p>
-  <strong>Barangay:</strong>
-  <%= @student.barangay %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @student.zipcode %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @student.street %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @student.phone_number %>
-</p>
-
-<p>
-  <strong>Mother name:</strong>
-  <%= @student.mother_name %>
-</p>
-
-<p>
-  <strong>Father name:</strong>
-  <%= @student.father_name %>
-</p>
-
-<p>
-  <strong>Spouse:</strong>
-  <%= @student.spouse %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @student.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                 class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3"><%= full_name@student %></h5>
+            <p class="text-muted mb-1"><%= @student.course + " " + @student.year_level %></p>
+            <p class="text-muted mb-4"><%= @student.address %></p>
+            <div class="d-flex justify-content-center mb-2">
+              <button type="button" class="btn btn-primary">Follow</button>
+              <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= full_name @student %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @student.email %>></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Contact Number</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @student.phone_number %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Gender</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @student.gender %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Civil Status</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @student.civil_status %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @student.address %></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Date of Birth</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @student.birthday %></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Place of Birth</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @student.birth_place %></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Religion</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @student.religion %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1"></span> Schools Attended
+                </p>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">Elementary:</p>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= @student.att_elem %></p>
+                  </div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">High School:</p>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= @student.att_hs %></p>
+                  </div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">College:</p>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= @student.att_coll %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1"></span> Family</p>
+                <p class="mb-1" style="font-size: .77rem;">Father's Name</p>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= @student.father_name %></p>
+                  </div>
+                </div>
+                <p class="mb-1" style="font-size: .77rem;">Mother's Name</p>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= @student.mother_name %></p>
+                  </div>
+                </div>
+                <p class="mb-1" style="font-size: .77rem;">Spouse's Name</p>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= @student.spouse %></p>
+                  </div>
+                </div>
+                <p class="mb-1" style="font-size: .77rem;">Parent's Address</p>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= @student.parent_address %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
