@@ -12,6 +12,7 @@
     "bootstrap-icons": "^1.10.5",
     "channels": "^0.0.4",
     "css-loader": "^6.7.3",
+    "faker": "^6.6.6",
     "jquery": "^3.6.4",
     "lts": "^1.2.0",
     "popper.js": "^1.16.1",
@@ -23,8 +24,6 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "babel": "^5.8.23",
-    "babel-core": "^5.0.0",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "webpack-dev-server": "3"

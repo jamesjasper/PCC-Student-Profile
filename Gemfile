@@ -12,9 +12,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
-gem 'ffaker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'faker'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -34,14 +34,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-  gem 'rails-controller-testing'
-  gem 'minitest'
-  gem 'minitest-reporters'
-  gem 'guard'
-  gem 'guard-minitest'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
