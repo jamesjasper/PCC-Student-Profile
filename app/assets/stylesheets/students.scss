@@ -1,3 +1,177 @@
 // Place all the styles related to the Students controller here.
-// They will automatically be included in application.scss.
+// They will automatically be included in application.sass.scss.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$color_1: #969696;
+$color_2: #e74c3c;
+$color_3: #646f79;
+
+$background-color_1: #f8f9fa;
+$background-color_2: #ffffff;
+
+/* user-dashboard-info-box */
+/* Candidate List */
+body {
+  background-color: $background-color_1 !important;
+}
+.p-4 {
+  padding: 1.5rem !important;
+}
+.mb-0 .my-0{
+  margin-bottom: 0 !important;
+}
+.shadow-sm {
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+}
+.user-dashboard-info-box {
+  .candidates-list {
+    .thumb {
+      margin-right: 20px;
+      img {
+        width: 80px;
+        height: 80px;
+        -o-object-fit: cover;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius: 50%;
+      }
+    }
+    td {
+      vertical-align: middle;
+    }
+  }
+  .title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 30px 0;
+  }
+  td {
+    li {
+      margin: 0 4px;
+    }
+  }
+  .table {
+    thead {
+      th {
+        border-bottom: none;
+      }
+    }
+  }
+  .candidate-list-favourite-time {
+    .candidate-list-favourite {
+      margin-bottom: 10px;
+    }
+  }
+  .candidate-list-details {
+    ul {
+      color: $color_1;
+    }
+  }
+}
+.table.manage-candidates-top {
+  th {
+    border: 0;
+  }
+  min-width: 650px;
+}
+.candidate-list {
+  background: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #eeeeee;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    -webkit-box-shadow: 0 0 34px 4px rgba(33, 37, 41, 0.06);
+    box-shadow: 0 0 34px 4px rgba(33, 37, 41, 0.06);
+    position: relative;
+    z-index: 99;
+    a.candidate-list-favourite {
+      color: $color_2;
+      -webkit-box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);
+      box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);
+    }
+  }
+  .candidate-list-image {
+    margin-right: 25px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 80px;
+    flex: 0 0 80px;
+    border: none;
+    img {
+      width: 80px;
+      height: 80px;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+  }
+  .candidate-list-favourite-time {
+    margin-left: auto;
+    text-align: center;
+    font-size: 13px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 90px;
+    flex: 0 0 90px;
+    span {
+      display: block;
+      margin: 0 auto;
+    }
+    .candidate-list-favourite {
+      display: inline-block;
+      position: relative;
+      height: 40px;
+      width: 40px;
+      line-height: 40px;
+      border: 1px solid #eeeeee;
+      border-radius: 100%;
+      text-align: center;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: $color_3;
+      &:hover {
+        background: #ffffff;
+        color: $color_2;
+      }
+    }
+  }
+}
+.candidate-list-title {
+  margin-bottom: 5px;
+}
+.candidate-list-details {
+  ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    li {
+      margin: 5px 10px 5px 0;
+      font-size: 13px;
+    }
+  }
+}
+.candidate-banner {
+  .candidate-list {
+    &:hover {
+      position: inherit;
+      -webkit-box-shadow: inherit;
+      box-shadow: inherit;
+      z-index: inherit;
+    }
+  }
+}
+.bg-white {
+  background-color: $background-color_2 !important;
+}

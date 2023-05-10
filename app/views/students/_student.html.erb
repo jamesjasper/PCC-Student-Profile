@@ -1,0 +1,37 @@
+<tr class="candidates-list">
+  <td class="title">
+    <div class="thumb"><%= gravatar_for student.email, class: "img-fluid" %></div>
+    <div class="candidate-list-details">
+      <div class="candidate-list-info">
+        <div class="candidate-list-title">
+          <h5 class="mb-0"><%= link_to full_name(student) %></h5>
+        </div>
+        <div class="candidate-list-option">
+          <ul class="list-unstyled">
+            <li><i class="fas fa-filter pr-1"></i><%= student.course  %></li>
+            <li><i class="fas fa-map-marker-alt pr-1"></i><%= student.address %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </td>
+  <td class="candidate-list-favourite-time text-center">
+    <span class="candidate-list-time order-1"><%= student.year_level %></span>
+  </td>
+  <td>
+    <ul class="list-unstyled mb-0 d-flex justify-content-lg-center align-content-center">
+      <li>
+        <%= link_to "View", student_path(student), class: "btn btn-sm btn-outline-info" %>
+        <i class="far fa-eye"></i>
+      </li>
+      <li>
+        <%= link_to "edit", edit_student_path(student), class: "btn btn-sm btn-outline-primary"%>
+        <i class="fas fa-pencil-alt"></i>
+      </li>
+      <li>
+        <%= link_to "delete", student_path(student), method: :delete, data: {confirm: 'Are you sure you want to delete this student?'}, class: "btn btn-sm btn-outline-danger"%>
+        <i class="far fa-trash-alt"></i>
+      </li>
+    </ul>
+  </td>
+</tr>

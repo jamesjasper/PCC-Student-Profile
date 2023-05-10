@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
 
   # GET /students or /students.json
   def index
-    @students = Student.all
+    @students = Student.paginate(page: params[:page])
   end
 
   # GET /students/1 or /students/1.json
@@ -13,6 +13,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    debugger
   end
 
   # GET /students/1/edit
