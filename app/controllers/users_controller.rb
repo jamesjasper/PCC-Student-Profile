@@ -12,6 +12,10 @@ class UsersController < ApplicationController
   # GET /users/1 or /users/1.json
   def show
     @user = User.find(params[:id])
+    @students = @user.students.paginate(page: params[:page])
+    unless @students.nil?
+      @student = @students.last
+    end
   end
 
   # GET /users/new

@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+  has_many :students, dependent: :nullify
 
   attr_accessor :remember_token
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   has_many :students
   before_save { self.email = email.to_s.downcase }
@@ -36,5 +38,4 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
-  
 end

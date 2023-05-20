@@ -2,7 +2,13 @@
 class StudentsController < ApplicationController
   # GET /students or /students.json
   def index
-    @students = Student.paginate(page: params[:page])
+    @students = Student.order(params[:sort]).paginate(page: params[:page])
+    @students = Student.search_by_name(params[:keyword]).paginate(page: params[:page]) if params[:filter] == 'name'
+    if Student.courses.include?(params[:filter])
+      @students = Student.search_by_name_and_course(params[:keyword], params[:filter]).paginate(page: params[:page])
+    elsif Student.year_levels.include?(params[:filter])
+      @students = Student.search_by_name_and_year(params[:keyword], params[:filter]).paginate(page: params[:page])
+    end
   end
 
   # GET /students/1 or /students/1.json
@@ -70,6 +76,7 @@ class StudentsController < ApplicationController
     params.require(:student).permit(:first_name, :middle_name, :last_name, :course, :year_level,
                                     :email, :phone_number, :address, :mother_name, :father_name,
                                     :spouse, :att_elem, :att_hs, :att_coll, :religion, :parent_address,
-                                    :fb_account, :birthday, :birth_place, :gender, :civil_status, :image)
+                                    :fb_account, :birthday, :birth_place, :gender, :civil_status, :image,
+                                    :filter, :keyword)
   end
 end

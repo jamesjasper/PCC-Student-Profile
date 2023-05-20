@@ -1,0 +1,7 @@
+<%= form_with(model: @student, method: 'get', class: "form-inline", local: true) do |f| %>
+  <div class="d-flex d-inline">
+    <%= f.select :filter, grouped_options_for_select(Student.search_options), class: 'form-select' %>
+    <%= f.text_field :keyword, class: "form-control", placeholder: "Enter your search keyword" %>
+    <%= f.submit "Search", class:"btn btn-primary" %>
+  </div>
+<% end %>

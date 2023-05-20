@@ -1,21 +1,22 @@
 <tr class="candidates-list">
   <td class="title align-content-center flex-shrink-0">
     <div class="thumb"><%= image_tag student.display_image , class: "rounded-circle img-fluid" if student.image.attached? %></div>
+  </td>
+  <td>
     <div class="candidate-list-details">
       <div class="candidate-list-info">
         <div class="candidate-list-title">
           <h5 class="mb-0"><%= link_to student_full_name(student), student_path(student) %></h5>
         </div>
-        <div class="candidate-list-option d-inline">
-          <ul>
-            <li><i class="fas fa-filter pr-1"></i><%= student.course  %></li>
-            <li><i class="fas fa-map-marker-alt pr-1"></i><%= student.address %></li>
-          </ul>
-        </div>
       </div>
     </div>
   </td>
-  <td class="candidate-list-favourite-time text-center">
+  <td>
+    <div class="candidate-list-option d-inline text-lg-center">
+        <span><%= student.course  %></span>
+    </div>
+  </td>
+  <td class="candidate-list-favourite-time text-lg-center">
     <span class="candidate-list-time order-1"><%= student.year_level %></span>
   </td>
   <td>
