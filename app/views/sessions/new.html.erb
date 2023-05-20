@@ -16,6 +16,12 @@
             <%= f.label :password, class:'form-label' %>
             <%= f.password_field :password, class: 'form-control form-control-lg' %>
           </div>
+          <div class="form-outline mb-3">
+            <%= f.label :remember_me, class:'form-check-label' do %>
+            <%= f.check_box :remember_me %>
+              <span>Remember me</span>
+              <% end %>
+          </div>
           <div class="text-center text-lg-start mt-4 pt-2">
               <%= f.submit "Login", class: "btn btn-primary btn-lg", style: "padding-left: 2.5rem; padding-right: 2.5rem;" %>
           </div>
