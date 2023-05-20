@@ -1,4 +1,5 @@
 class Student < ApplicationRecord
+  after_commit :add_default_img, on: [:create, :update]
   belongs_to :user, optional: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -19,6 +20,7 @@ class Student < ApplicationRecord
   validates :phone_number, presence: true
   validates :att_elem, presence: true
   validates :att_hs, presence: true
+  has_one_attached :image
 
   def self.courses
     ['Bachelor of Science in Information Technology',
@@ -28,5 +30,16 @@ class Student < ApplicationRecord
 
   def self.year_levels
     %w[I II III IV]
+  end
+
+  def add_default_img
+    unless image.attached?
+      self.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.jpeg')),
+                        filename: 'default.jpg', content_type: 'image/jpg')
+    end
+  end
+
+  def display_image
+    image.variant(resize_to_limit: [200, 200])
   end
 end

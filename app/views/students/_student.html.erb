@@ -1,13 +1,13 @@
 <tr class="candidates-list">
   <td class="title align-content-center flex-shrink-0">
-    <div class="thumb"><%= gravatar_for student.email, class: "img-fluid" %></div>
+    <div class="thumb"><%= image_tag student.display_image , class: "rounded-circle img-fluid" if student.image.attached? %></div>
     <div class="candidate-list-details">
       <div class="candidate-list-info">
         <div class="candidate-list-title">
-          <h5 class="mb-0"><%= link_to full_name(student) %></h5>
+          <h5 class="mb-0"><%= link_to student_full_name(student), student_path(student) %></h5>
         </div>
         <div class="candidate-list-option d-inline">
-          <ul class="list-unstyled">
+          <ul>
             <li><i class="fas fa-filter pr-1"></i><%= student.course  %></li>
             <li><i class="fas fa-map-marker-alt pr-1"></i><%= student.address %></li>
           </ul>
@@ -19,7 +19,7 @@
     <span class="candidate-list-time order-1"><%= student.year_level %></span>
   </td>
   <td>
-    <ul class="list-unstyled mb-0 d-flex justify-content-lg-center align-content-center">
+    <ul class="mb-0 d-flex justify-content-lg-center align-content-center">
       <li>
         <%= link_to "View", student_path(student), class: "btn btn-sm btn-outline-info" %>
         <i class="far fa-eye"></i>

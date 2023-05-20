@@ -4,9 +4,8 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                 class="rounded-circle img-fluid" style="width: 150px;">
-            <h5 class="my-3"><%= full_name@student %></h5>
+            <%= image_tag @student.image , class: "rounded-circle img-fluid" if @student.image.attached? %>
+            <h5 class="my-3"><%= student_full_name @student %></h5>
             <p class="text-muted mb-1"><%= @student.course + " " + @student.year_level %></p>
             <p class="text-muted mb-4"><%= @student.address %></p>
             <div class="d-flex justify-content-center mb-2">

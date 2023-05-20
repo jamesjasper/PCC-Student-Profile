@@ -8,6 +8,7 @@
           <div class="card-body p-4 p-md-5">
             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Student Profile - Edit Form</h3>
             <%= form_with(model: @student, local: true) do |f| %>
+              <%= render'shared/error_messages', object: f.object %>
               <%= render 'form', f: f %>
             <% end %>
           </div>

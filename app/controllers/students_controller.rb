@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 class StudentsController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :admin_user, only: [:destroy]
-
   # GET /students or /students.json
   def index
     @students = Student.paginate(page: params[:page])
   end
 
   # GET /students/1 or /students/1.json
-  def show; end
+  def show
+    @student = Student.find(params[:id])
+  end
 
   # GET /students/new
   def new
@@ -17,11 +16,13 @@ class StudentsController < ApplicationController
   end
 
   # GET /students/1/edit
-  def edit; end
+  def edit
+    @student = Student.find(params[:id])
+  end
 
   # POST /students or /students.json
   def create
-    @student = Student.new(student_params)
+    @student = current_user.students.build(student_params)
 
     respond_to do |format|
       if @student.save
@@ -36,6 +37,7 @@ class StudentsController < ApplicationController
 
   # PATCH/PUT /students/1 or /students/1.json
   def update
+    @student = Student.find(params[:id])
     respond_to do |format|
       if @student.update(student_params)
         format.html { redirect_to student_url(@student), notice: 'Student was successfully updated.' }
@@ -68,6 +70,6 @@ class StudentsController < ApplicationController
     params.require(:student).permit(:first_name, :middle_name, :last_name, :course, :year_level,
                                     :email, :phone_number, :address, :mother_name, :father_name,
                                     :spouse, :att_elem, :att_hs, :att_coll, :religion, :parent_address,
-                                    :fb_account, :birthday, :birth_place, :gender, :civil_status)
+                                    :fb_account, :birthday, :birth_place, :gender, :civil_status, :image)
   end
 end

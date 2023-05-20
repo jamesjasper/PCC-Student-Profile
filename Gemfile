@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
+gem 'active_storage_validations', '~> 0.8.2'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
@@ -15,8 +16,9 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'will_paginate'
 gem 'faker'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+
+gem 'image_processing', '~> 1.2'
+gem 'mini_magick', '~> 4.9.5'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
