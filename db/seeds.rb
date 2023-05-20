@@ -7,12 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+User.create!(username: 'administrator',
+             email: 'jamesjasper.villamor@gmail.com',
+             password: 'password1234',
+             password_confirmation: 'password1234',
+             first_name: 'JAMES JASPER',
+             last_name: 'VILLAMOR',
+             role: 'admin')
+
 99.times do
   User.create!(username: Faker::Internet.unique.username,
                email: Faker::Internet.unique.email,
-               password: "password1234",
-               password_confirmation: "password1234",
-               first_name: FFAKER::Name.unique.first_name,
-               last_name: FFAKER::NAME.unique.last_name,
-               role: "user")
+               password: 'password1234',
+               password_confirmation: 'password1234',
+               first_name: Faker::Name.unique.first_name,
+               last_name: Faker::Name.unique.last_name,
+               role: 'user')
 end

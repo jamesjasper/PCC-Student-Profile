@@ -1,107 +1,178 @@
-<%= form_with(model: student) do |form| %>
-  <% if student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+<%= render'shared/error_messages', object: f.object %>
+<div class="card">
+  <h5 class="card-title text-lg-center mt-lg-4">Basic Information</h5>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="form-outline">
+          <%= f.label :first_name, class: "form-label" %>
+          <%= f.text_field :first_name, class: "form-control form-control-sm" %>
+        </div>
+      </div>
 
-      <ul>
-        <% student.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+      <div class="col-md-4 mb-4">
+        <div class="form-outline">
+          <%= f.label :middle_name, class: "form-label" %>
+          <%= f.text_field :middle_name, class: "form-control form-control-sm" %>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="form-outline">
+          <%= f.label :last_name, class: "form-label" %>
+          <%= f.text_field :last_name, class: "form-control form-control-sm" %>
+        </div>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
+    <div class="row">
+      <div class="col-md-12 mb-4 pb-2">
+        <%= f.label :address, class: "form-label" %>
+        <%= f.text_field :address, class: "form-control form-control-sm" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :middle_name %>
-    <%= form.text_field :middle_name %>
-  </div>
+    <div class="row">
+      <div class="col-md-6 mb-4 d-flex align-items-center">
+        <div class="form-outline datepicker date w-100">
+          <%= f.label :birthday, class: "form-label" %>
+          <%= f.text_field :birthday, class: "form-control form-control-sm" %>
+          <i class="fas fa-calendar input-prefix"></i>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
+      <div class="col-md-6 mb-4">
+        <div class="form-outline">
+          <%= f.label :birth_place, "Birthplace", class: "form-label" %>
+          <%= f.text_field :birth_place, class: "form-control form-control-sm" %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :course %>
-    <%= form.text_field :course %>
+    <div class="row">
+      <div class="col-md-6 mb-4 d-flex align-items-center">
+        <div class="col-md-6 mb-4">
+          <h6 class="mb-2 pb-1">Gender: </h6>
+          <div class="form-check form-check-inline">
+            <%=f.label :gender, "Male", value: "Male", class: "form-check-label" %>
+            <%=f.radio_button :gender, "Male", class: "form-check-input" %>
+          </div>
+          <div class="form-check form-check-inline">
+            <%=f.label :gender, "Female", value: "Female", class: "form-check=label" %>
+            <%=f.radio_button :gender, "Female", class: "form-check-input" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4 d-flex align-items-center">
+        <div class="col-md-6 mb-4">
+          <h6 class="mb-2 pb-1">Civil Status: </h6>
+          <div class="form-check form-check-inline">
+            <%=f.label :civil_status, "Single", value: "Single", class: "form-check=label" %>
+            <%=f.radio_button :civil_status, "Single", class: "form-check-input" %>
+          </div>
+          <div class="form-check form-check-inline">
+            <%=f.label :civil_status, "Married", value: "Married", class: "form-check=label" %>
+            <%=f.radio_button :civil_status, "Married", class: "form-check-input" %>
+          </div>
+          <div class="form-check form-check-inline">
+            <%=f.label :civil_status, "Widow", value: "Widow", class: "form-check=label" %>
+            <%=f.radio_button :civil_status, "Widow", class: "form-check-input" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+<hr>
+<div class="card">
+  <h5 class="card-title text-lg-center mt-lg-4">Contact Information</h5>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4 mb-2 pb-2">
+        <div class="form-outline">
+          <%= f.label :email, class: "form-label" %>
+          <%= f.email_field :email, class: "form-control form-control-sm" %>
+        </div>
 
-  <div class="field">
-    <%= form.label :year_level %>
-    <%= form.text_field :year_level %>
+      </div>
+      <div class="col-md-4 mb-2 pb-2">
+        <div class="form-outline">
+          <%= f.label :phone_number, class: "form-label" %>
+          <%= f.phone_field :phone_number, class: "form-control form-control-sm" %>
+        </div>
+      </div>
+      <div class="col-md-4 mb-2 pb-2">
+        <div class="form-outline">
+          <%= f.label :fb_account, class: "form-label" %>
+          <%= f.phone_field :fb_account, class: "form-control form-control-sm" %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+</div>
+<hr>
+<div class="card">
+  <h5 class="card-title text-lg-center mt-lg-4">Course Information</h5>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-9 mb-4 pb-2">
+        <%= f.label :course, class: "form-label" %>
+        <%= f.select :course, Student.courses %>
+      </div>
+      <div class="col-md-3 mb-4 pb-2">
+        <%= f.label :year_level, class: "form-label" %>
+        <%= f.select :year_level, Student.year_levels %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :phone_number %>
-    <%= form.text_field :phone_number %>
+</div>
+<hr>
+<div class="card">
+  <h5 class="card-title text-lg-center mt-lg-4">Family Information</h5>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6 mb-4 pb-2">
+        <%= f.label :father_name, "Father's Name", class: "form-label" %>
+        <%= f.text_field :father_name, class: "form-control form-control-sm" %>
+      </div>
+      <div class="col-md-6 mb-4 pb-2">
+        <%= f.label :mother_name, "Mother's Name", class: "form-label" %>
+        <%= f.text_field :mother_name, class: "form-control form-control-sm" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-4 pb-2">
+        <%= f.label :parent_address, "Parent's Address", class: "form-label" %>
+        <%= f.text_field :parent_address, class: "form-control form-control-sm" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-4 pb-2">
+        <%= f.label :spouse, class: "form-label" %>
+        <%= f.text_field :spouse, class: "form-control form-control-sm" %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :region %>
-    <%= form.text_field :region %>
+</div>
+<hr>
+<div class="card">
+  <h5 class="card-title text-lg-center mt-lg-4">School History</h5>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12 mb-4 pb-2">
+        <%= f.label :att_elem, "Elementary", class: "form-label" %>
+        <%= f.text_field :att_elem, class: "form-control form-control-sm" %>
+      </div>
+      <div class="col-md-12 mb-4 pb-2">
+        <%= f.label :att_hs, "High School", class: "form-label" %>
+        <%= f.text_field :att_hs, class: "form-control form-control-sm" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-4 pb-2">
+        <%= f.label :att_coll, "College", class: "form-label" %>
+        <%= f.text_field :att_coll, class: "form-control form-control-sm" %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :province %>
-    <%= form.text_field :province %>
-  </div>
-
-  <div class="field">
-    <%= form.label :municipality %>
-    <%= form.text_field :municipality %>
-  </div>
-
-  <div class="field">
-    <%= form.label :barangay %>
-    <%= form.text_field :barangay %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zipcode %>
-    <%= form.number_field :zipcode %>
-  </div>
-
-  <div class="field">
-    <%= form.label :street %>
-    <%= form.text_field :street %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone_number %>
-    <%= form.text_field :phone_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :mother_name %>
-    <%= form.text_field :mother_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :father_name %>
-    <%= form.text_field :father_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :spouse %>
-    <%= form.text_field :spouse %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

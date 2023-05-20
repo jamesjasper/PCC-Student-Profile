@@ -1,12 +1,12 @@
-<tr class="candidates-list">
-  <td class="title">
+<tr class="candidates-list j">
+  <td class="title align-content-center">
     <div class="thumb"><%= gravatar_for student.email, class: "img-fluid" %></div>
     <div class="candidate-list-details">
       <div class="candidate-list-info">
         <div class="candidate-list-title">
           <h5 class="mb-0"><%= link_to full_name(student) %></h5>
         </div>
-        <div class="candidate-list-option">
+        <div class="candidate-list-option d-inline">
           <ul class="list-unstyled">
             <li><i class="fas fa-filter pr-1"></i><%= student.course  %></li>
             <li><i class="fas fa-map-marker-alt pr-1"></i><%= student.address %></li>
