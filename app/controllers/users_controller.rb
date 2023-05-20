@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :admin_user, only: [:destroy]
 
   # GET /users or /users.json
   def index
@@ -18,7 +20,9 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit; end
+  def edit
+    @user = User.find(params[:id])
+  end
 
   # POST /users or /users.json
   def create
@@ -34,6 +38,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to user_url(@user), notice: 'User was successfully updated.' }
@@ -47,7 +52,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    @user.destroy
+    User.find(params[:id]).destroy
 
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully deleted.' }
@@ -63,6 +68,23 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :first_name, :last_name, :role)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :first_name, :last_name)
+  end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = 'Please log in.'
+      redirect_to root_url
+    end
+  end
+
+  def correct_user
+    @user = User.find (params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
+
+  def admin_user
+    redirect_to root_url unless admin?
   end
 end

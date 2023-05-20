@@ -13,6 +13,7 @@
     "channels": "^0.0.4",
     "css-loader": "^6.7.3",
     "faker": "^6.6.6",
+    "file-loader": "^6.2.0",
     "jquery": "^3.6.4",
     "lts": "^1.2.0",
     "popper.js": "^1.16.1",

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class StudentsController < ApplicationController
-  before_action :set_student, only: %i[ show edit update destroy ]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :admin_user, only: [:destroy]
 
   # GET /students or /students.json
   def index
