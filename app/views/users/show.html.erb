@@ -1,8 +1,8 @@
 <%= provide(:title, @user.first_name) %>
 <p id="notice"><%= notice %></p>
 <section class="min-vh-50" style="background-color: #f4f5f7;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
+  <div class="container py-5">
+    <div class="row d-flex align-items-baseline min-vh-100">
       <div class="col col-lg-6 mb-4 mb-lg-0">
         <div class="card mb-3" style="border-radius: .5rem;">
           <div class="row g-0">
@@ -47,6 +47,29 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col col-lg-6 mb-4 mb-lg-0">
+        <h5>List of added students</h5>
+        <div class="pagination justify-content-center">
+          <%= will_paginate @students %>
+        </div>
+        <table class="table manage-candidates-top mb-0 table-striped table-hover">
+          <thead>
+          <tr>
+            <th class="text-lg-center"></th>
+            <th class="text-lg-center"><%= link_to "Student Name", :sort => "first_name" %></th>
+            <th class="text-lg-center"><%= link_to "Course", :sort => "course" %></th>
+            <th class="text-lg-center-center"><%= link_to "Year Level", :sort => "year_level" %></th>
+            <th class="action text-lg-center">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <%= render @students %>
+          </tbody>
+        </table>
+        <div class="pagination justify-content-center">
+          <%= will_paginate @students %>
         </div>
       </div>
     </div>

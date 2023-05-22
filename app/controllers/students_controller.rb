@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 class StudentsController < ApplicationController
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :admin_user, only: [:edit, :update, :destroy]
   # GET /students or /students.json
   def index
     @students = Student.order(params[:sort]).paginate(page: params[:page])
     @students = Student.search_by_name(params[:keyword]).paginate(page: params[:page]) if params[:filter] == 'name'
+    #@students = current_user.students if params[]
     if Student.courses.include?(params[:filter])
       @students = Student.search_by_name_and_course(params[:keyword], params[:filter]).paginate(page: params[:page])
     elsif Student.year_levels.include?(params[:filter])
@@ -57,10 +61,10 @@ class StudentsController < ApplicationController
 
   # DELETE /students/1 or /students/1.json
   def destroy
-    @student.destroy
+    Student.find(params[:id]).destroy
 
     respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
+      format.html { redirect_back fallback_location: root_path, notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -78,5 +82,21 @@ class StudentsController < ApplicationController
                                     :spouse, :att_elem, :att_hs, :att_coll, :religion, :parent_address,
                                     :fb_account, :birthday, :birth_place, :gender, :civil_status, :image,
                                     :filter, :keyword)
+  end
+
+  def admin_user
+    redirect_to root_url unless admin?
+  end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = 'Please log in.'
+      redirect_to root_url
+    end
+  end
+  def correct_user
+    @user = User.find (params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 end

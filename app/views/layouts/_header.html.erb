@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
+    <div class="container-fluid justify-content-center">
       <%= link_to full_title, "#", class: 'navbar-brand' %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -15,9 +15,6 @@
             <% end %>
             <li class="nav-item" >
               <%= link_to "Manage Students", students_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item" >
-              <%= link_to "Search", about_path, class: "nav-link" %>
             </li>
             <li class="dropdown nav-item">
               <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown" role="button">

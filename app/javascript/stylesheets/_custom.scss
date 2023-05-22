@@ -181,3 +181,16 @@ body {
 .bg-white {
   background-color: #ffffff !important;
 }
+
+@media screen and (min-width: 1350px) {
+  .navbar {
+    text-align: center;
+  }
+  .navbar-header {
+    display: inline-block;
+    float: none !important;
+  }
+  .navbar-collapse.collapse {
+    display: inline-block !important;
+  }
+}

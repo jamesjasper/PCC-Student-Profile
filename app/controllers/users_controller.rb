@@ -11,10 +11,10 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
-    @user = User.find(params[:id])
-    @students = @user.students.paginate(page: params[:page])
+    set_user
+    @students = @user.students.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     unless @students.nil?
-      @student = @students.last
+      @student = @students.first
     end
   end
 
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    set_user
   end
 
   # POST /users or /users.json
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    @user = User.find(params[:id])
+    set_user
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to user_url(@user), notice: 'User was successfully updated.' }
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    User.find(params[:id]).destroy
+    set_user.destroy
 
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully deleted.' }
@@ -75,6 +75,12 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :first_name, :last_name)
   end
 
+  #check if user.role is adin else redirect to root_url
+  def admin_user
+    redirect_to root_url unless admin?
+  end
+
+  #check if user is logged in
   def logged_in_user
     unless logged_in?
       store_location
@@ -83,12 +89,9 @@ class UsersController < ApplicationController
     end
   end
 
+  #checks if user is accessing its own files or is admin
   def correct_user
-    @user = User.find (params[:id])
+    set_user
     redirect_to(root_url) unless current_user?(@user)
-  end
-
-  def admin_user
-    redirect_to root_url unless admin?
   end
 end
