@@ -8,7 +8,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require('bootstrap-icons/font/bootstrap-icons.css')
 
 import 'bootstrap'
 import '../stylesheets/application'
