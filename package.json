@@ -19,6 +19,7 @@
     "faker": "^6.6.6",
     "file-loader": "^6.2.0",
     "glob-parent": "^6.0.2",
+    "html-webpack-plugin": "^5.5.1",
     "jquery": "^3.6.4",
     "jsdom": "^22.0.0",
     "lts": "^1.2.0",
@@ -36,6 +37,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "style-loader": "^3.3.3",
     "webpack-dev-server": "4.15.0"
   },
   "engines": {
