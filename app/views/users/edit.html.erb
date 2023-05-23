@@ -25,13 +25,9 @@
             <%= form_with(model: @user, local: true) do |f| %>
               <%= render 'shared/error_messages', object: f.object %>
               <%= render 'form', f: f %>
-              <div class="row gutters">
-                <div class="row-cols-sm-auto p-4">
-                  <div class="text-lg-center">
-                    <%= link_to "Cancel", user_path(@user), class: "btn btn-sm btn-secondary" %>
-                    <%= f.submit "Update", class: "btn btn-sm btn-primary", value: "update" %>
-                  </div>
-                </div>
+              <div class="text-lg-center">
+                <%= link_to "Cancel", user_path(@user), class: "btn btn-sm btn-secondary" %>
+                <%= f.submit "Update", class: "btn btn-sm btn-primary", value: "update" %>
               </div>
             <% end %>
           </div>

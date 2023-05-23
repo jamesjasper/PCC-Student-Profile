@@ -10,19 +10,13 @@
             <div class="row-col-sm-auto">
               <h6 class="mb-2 text-primary">Personal Details</h6>
             </div>
-            <div class='"form-group">
             <%= form_with(model: @user, local: true) do |f| %>
               <%= render 'shared/error_messages', object: f.object %>
               <%= render 'form', f: f %>
-              <div class="row gutters">
-                <div class="row-cols-sm-auto p-4">
-                  <div class="text-lg-center">
-                    <%= f.submit "Add", class: "btn btn-sm btn-primary", value: "Add" %>
-                  </div>
-                </div>
+              <div class="text-lg-center">
+                <%= f.submit "Add", class: "btn btn-sm btn-primary", value: "Add" %>
               </div>
             <% end %>
-            </div>
           </div>
         </div>
       </div>

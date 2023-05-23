@@ -11,6 +11,9 @@
               <%= form_with(model: @student, local: true) do |f| %>
                 <%= render'shared/error_messages', object: f.object %>
                 <%= render 'form', f: f %>
+                <div class="text-lg-center">
+                  <%= f.submit yield(:button_text), class: "btn btn-primary btn-lg" %>
+                </div>
               <% end %>
             </div>
           </div>

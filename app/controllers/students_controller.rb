@@ -6,7 +6,6 @@ class StudentsController < ApplicationController
   def index
     @students = Student.order(params[:sort]).paginate(page: params[:page])
     @students = Student.search_by_name(params[:keyword]).paginate(page: params[:page]) if params[:filter] == 'name'
-    #@students = current_user.students if params[]
     if Student.courses.include?(params[:filter])
       @students = Student.search_by_name_and_course(params[:keyword], params[:filter]).paginate(page: params[:page])
     elsif Student.year_levels.include?(params[:filter])
@@ -34,11 +33,10 @@ class StudentsController < ApplicationController
     @student = current_user.students.build(student_params)
 
     if @student.save
-      flash[:success] = "Student #{ @student.first_name + " " + @student.last_name } was successfully added!"
+      flash[:success] = "Student #{"#{@student.first_name} #{@student.last_name}"} was successfully added!"
       redirect_to @student
     else
-      flash[:danger] = "Failed to create student!"
-      redirect_back(fallback_location: root_path)
+      render 'edit'
     end
   end
 
@@ -46,7 +44,7 @@ class StudentsController < ApplicationController
   def update
     set_student
     if @student.update(student_params)
-      flash[:success] = "Student #{ @student.first_name + " " + @student.last_name } was successfully updated."
+      flash[:success] = "Student #{"#{@student.first_name} #{@student.last_name}"} was successfully updated."
       redirect_to student_url
     else
       render 'edit'
@@ -57,16 +55,16 @@ class StudentsController < ApplicationController
   def destroy
     set_student
     if !@student.nil?
-      flash[:success] = "Student #{ @student.first_name + " " + @student.last_name } was successfully deleted."
+      flash[:success] = "Student #{"#{@student.first_name} #{@student.last_name}"} was successfully deleted."
       @student.destroy
-      redirect_back(fallback_location: root_path)
     else
-      flash[:danger] = "There was a problem deleting student."
-      redirect_back(fallback_location: root_path)
+      flash[:danger] = 'There was a problem deleting student.'
     end
+    redirect_back(fallback_location: root_path)
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_student
     @student = Student.find(params[:id])
