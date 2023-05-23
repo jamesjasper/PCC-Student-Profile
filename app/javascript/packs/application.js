@@ -14,4 +14,4 @@ import "bootstrap/dist/css/bootstrap"
 
 import '../stylesheets/application'
 require("packs/custom")
-require('bootstrap-icons/font/bootstrap-icons.css');
+// require('bootstrap-icons/font/bootstrap-icons.css');
