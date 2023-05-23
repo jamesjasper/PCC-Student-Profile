@@ -7,7 +7,7 @@
           <h5 class="mb-0"><%= link_to full_name(user), user_path(user) %></h5>
         </div>
         <div class="candidate-list-option">
-          <ul>
+          <ul class="list-unstyled">
             <li><%= user.email  %></li>
             <li><%= user.username %></li>
           </ul>
@@ -16,7 +16,7 @@
     </div>
     </td>
     <td class="mb-0 justify-content-lg-center text-lg-start">
-      <ul>
+      <ul class="list-unstyled">
         <li>
           <%= link_to "view", user_path(user),class: "btn btn-sm btn-outline-primary"  %>
         </li>

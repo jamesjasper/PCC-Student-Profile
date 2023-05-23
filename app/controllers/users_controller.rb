@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: [:destroy]
+  before_action :admin_user, only: [:destroy, :update, :edit]
 
   # GET /users or /users.json
   def index
@@ -80,18 +80,9 @@ class UsersController < ApplicationController
     redirect_to root_url unless admin?
   end
 
-  #check if user is logged in
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = 'Please log in.'
-      redirect_to root_url
-    end
-  end
-
   #checks if user is accessing its own files or is admin
   def correct_user
     set_user
-    redirect_to(root_url) unless current_user?(@user)
+    redirect_to(root_url) unless current_user?(@user) || admin?
   end
 end
