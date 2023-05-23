@@ -3,10 +3,7 @@
 <div class="container mt-3 mb-4 d-flex justify-content-center">
   <div class="col-lg-12 mt-4 mt-lg-0">
     <div class="row">
-      <h1>List of Students</h1>
-      <div class="col-3">
-      </div>
-      <div class="col-6">
+      <div class="col-9">
         <%= render 'shared/search_form' %>
       </div>
       <div class="col-3 d-flex justify-content-lg-end">
@@ -17,10 +14,10 @@
           <div class="pagination justify-content-center">
             <%= will_paginate %>
           </div>
-          <table class="table manage-candidates-top mb-0 table-striped table-hover">
+          <table class="table manage-candidates-top mb-0 table-striped table-hover caption-top">
+            <caption>Search/Student List Results</caption>
             <thead>
             <tr>
-              <th class="text-lg-center"></th>
               <th class="text-lg-center"><%= link_to "Student Name", :sort => "first_name" %></th>
               <th class="text-lg-center"><%= link_to "Course", :sort => "course" %></th>
               <th class="text-lg-center-center"><%= link_to "Year Level", :sort => "year_level" %></th>

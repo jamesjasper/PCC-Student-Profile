@@ -6,8 +6,8 @@
   <div class="row d-flex justify-content-center min-vh-100">
     <div class="col-sm-6 align-baseline">
       <div class="card" style="width: 18rem;">
-        <div class="card-body">
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin" class="card-img-top">
+        <div class="card-body text-align-center">
+              <%= image_tag @user.display_image , class: "rounded-circle img-thumbnail mx-auto d-block" if @user.image.attached? %>
               <div class="card-text">
                 <h5 class="text-lg-center"><%= full_name @user %></h5>
                 <h6 class="text-lg-center"><%= @user.username %></h6>
@@ -23,6 +23,7 @@
               <h6 class="mb-2 text-primary">Personal Details</h6>
             </div>
             <%= form_with(model: @user, local: true) do |f| %>
+              <%= render 'shared/error_messages', object: f.object %>
               <%= render 'form', f: f %>
               <div class="row gutters">
                 <div class="row-cols-sm-auto p-4">

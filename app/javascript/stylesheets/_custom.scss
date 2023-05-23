@@ -19,16 +19,6 @@
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }
 
-
-.table {
-  &.manage-candidates-top {
-    min-width: 650px;
-    th {
-      border: 0;
-    }
-  }
-}
-
 .candidate-list-title {
   margin-bottom: 5px;
 }
@@ -109,6 +99,7 @@ body {
     }
   }
 }
+
 .form-control {
   border: 1px solid #cfd1d8;
   -webkit-border-radius: 2px;
@@ -125,72 +116,4 @@ body {
   border-radius: 5px;
   border: 0;
   margin-bottom: 1rem;
-}
-
-/* user-dashboard-info-box */
-/* Candidate List */
-body {
-  background-color: #f8f9fa !important;
-}
-.p-4 {
-  padding: 1.5rem !important;
-}
-.mb-0 {
-  margin-bottom: 0 !important;
-}
-.my-0 {
-  margin-bottom: 0 !important;
-}
-.shadow-sm {
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
-}
-
-.table.manage-candidates-top {
-  th {
-    border: 0;
-  }
-  min-width: 650px;
-}
-.candidate-list-title {
-  margin-bottom: 5px;
-}
-.candidate-list-details {
-  ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-bottom: 0;
-    li {
-      margin: 5px 10px 5px 0;
-      font-size: 13px;
-    }
-  }
-}
-.candidate-banner {
-  .candidate-list {
-    &:hover {
-      position: inherit;
-      -webkit-box-shadow: inherit;
-      box-shadow: inherit;
-      z-index: inherit;
-    }
-  }
-}
-.bg-white {
-  background-color: #ffffff !important;
-}
-
-@media screen and (min-width: 1350px) {
-  .navbar {
-    text-align: center;
-  }
-  .navbar-header {
-    display: inline-block;
-    float: none !important;
-  }
-  .navbar-collapse.collapse {
-    display: inline-block !important;
-  }
 }

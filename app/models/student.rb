@@ -1,6 +1,6 @@
 class Student < ApplicationRecord
   after_commit :add_default_img, on: %i[create update]
-  belongs_to :user, optional: true
+  belongs_to :user
   scope :search_by_name, ->(name) { where("CONCAT_WS(' ', first_name, last_name) ILIKE ?", "%#{name}%") }
   scope :search_by_name_and_course, lambda { |name, course|
                                       where("(CONCAT_WS(' ', first_name, last_name)) ILIKE ? AND course ILIKE ?",

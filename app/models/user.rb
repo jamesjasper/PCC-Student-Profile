@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :students, dependent: :nullify
+  after_commit :add_default_img, on: %i[create update]
 
   attr_accessor :remember_token
 
@@ -15,6 +16,8 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :role, presence: true
+  has_one_attached :image
+
   has_secure_password
 
   def self.digest(string)
@@ -37,5 +40,16 @@ class User < ApplicationRecord
 
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def add_default_img
+    unless image.attached?
+      image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.jpeg')),
+                        filename: 'default.jpg', content_type: 'image/jpg')
+    end
+  end
+
+  def display_image
+    image.variant(resize_to_limit: [200, 200])
   end
 end

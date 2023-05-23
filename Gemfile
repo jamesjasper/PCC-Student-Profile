@@ -12,7 +12,7 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
-gem 'bootstrap-will_paginate', '1.0.0'
+gem 'will_paginate-bootstrap5', '~> 0.2.4'
 gem 'will_paginate'
 gem 'faker'
 

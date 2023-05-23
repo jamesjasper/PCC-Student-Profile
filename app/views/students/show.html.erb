@@ -9,8 +9,10 @@
             <p class="text-muted mb-1"><%= @student.course + " " + @student.year_level %></p>
             <p class="text-muted mb-4"><%= @student.address %></p>
             <div class="d-flex justify-content-center mb-2">
+              <% if current_user?(@student.user) || admin? %>
               <%= link_to "Edit", edit_student_path(@student), class: "btn btn-outline-success ms-1" %>
               <%= link_to "Delete", @student, method: :delete, data: { confirm: "Are you sure you want to delete this student record?" }, class: "btn btn-outline-danger ms-4" %>
+              <% end %>
             </div>
           </div>
         </div>
