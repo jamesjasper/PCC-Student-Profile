@@ -1,11 +1,10 @@
 <%= provide(:title, "Edit User") %>
+<%= provide(:button_text, "Update") %>
 
-<p id="notice"><%= notice %></p>
-
-<div class="container">
+<div class="container-fluid">
   <div class="row d-flex justify-content-center min-vh-100">
-    <div class="col-sm-6 align-baseline">
-      <div class="card" style="width: 18rem;">
+    <div class="col-lg-6 p-4">
+      <div class="card">
         <div class="card-body text-align-center">
               <%= image_tag @user.display_image , class: "rounded-circle img-thumbnail mx-auto d-block" if @user.image.attached? %>
               <div class="card-text">
@@ -15,19 +14,16 @@
             </div>
       </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-lg-6 p-4">
       <div class="card">
         <div class="card-body">
           <div class="row gutters">
-            <div class="row-col-sm-auto">
-              <h6 class="mb-2 text-primary">Personal Details</h6>
-            </div>
+            <h6 class="mb-2 text-primary">Personal Details</h6>
             <%= form_with(model: @user, local: true) do |f| %>
               <%= render 'shared/error_messages', object: f.object %>
               <%= render 'form', f: f %>
               <div class="text-lg-center">
-                <%= link_to "Cancel", user_path(@user), class: "btn btn-sm btn-secondary" %>
-                <%= f.submit "Update", class: "btn btn-sm btn-primary", value: "update" %>
+                <%= f.submit yield(:button_text), class: "btn btn-sm btn-primary", value: "update" %>
               </div>
             <% end %>
           </div>

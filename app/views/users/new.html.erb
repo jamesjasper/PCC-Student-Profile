@@ -1,20 +1,19 @@
 <%= provide(:title, "Add User") %>
+<%= provide(:button_text, "Add User") %>
 
 <div class="container">
-  <div class="row d-flex justify-content-center min-vh-100">
+  <div class="row d-flex justify-content-center min-vh-100 p-4">
     <div class="col-sm-6">
       <h1 class ="text-lg-center">Add User</h1>
       <div class="card">
         <div class="card-body">
           <div class="row gutters">
-            <div class="row-col-sm-auto">
-              <h6 class="mb-2 text-primary">Personal Details</h6>
-            </div>
+            <h6 class="mb-2 text-primary">Personal Details</h6>
             <%= form_with(model: @user, local: true) do |f| %>
               <%= render 'shared/error_messages', object: f.object %>
               <%= render 'form', f: f %>
               <div class="text-lg-center">
-                <%= f.submit "Add", class: "btn btn-sm btn-primary", value: "Add" %>
+                <%= f.submit yield(:button_text), class: "btn btn-sm btn-primary" %>
               </div>
             <% end %>
           </div>

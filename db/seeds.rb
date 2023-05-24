@@ -15,7 +15,15 @@ User.create!(username: 'administrator',
              last_name: 'VILLAMOR',
              role: 'admin')
 
-20.times do
+User.create!(username: 'sampleuser',
+             email: 'sampleuser@gmail.com',
+             password: 'password1234',
+             password_confirmation: 'password1234',
+             first_name: 'Sample',
+             last_name: 'User',
+             role: 'user')
+
+15.times do
   User.create!(username: Faker::Internet.unique.username(specifier: 5..20),
                email: Faker::Internet.unique.email,
                password: 'password1234',
@@ -26,7 +34,7 @@ User.create!(username: 'administrator',
 end
 
 users = User.all
-30.times do
+20.times do
   users.each do |user|
     user.students.create!(first_name: Faker::Name.unique.first_name,
                           last_name: Faker::Name.last_name,

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class StudentsController < ApplicationController
   before_action :logged_in_user, only: [:index, :show, :edit, :create, :update, :destroy]
-  before_action :admin_user, only: :destroy
+  before_action :correct_user, only: :destroy
   # GET /students or /students.json
   def index
     @students = Student.order(params[:sort]).paginate(page: params[:page])
@@ -60,7 +60,7 @@ class StudentsController < ApplicationController
     else
       flash[:danger] = 'There was a problem deleting student.'
     end
-    redirect_back(fallback_location: root_path)
+    redirect_to root_path
   end
 
   private
@@ -79,12 +79,8 @@ class StudentsController < ApplicationController
                                     :filter, :keyword)
   end
 
-  def admin_user
-    redirect_to root_url unless admin?
-  end
-
   def correct_user
     @student = current_user.students.find_by(id: params[:id])
-    redirect_to(root_url) unless current_user?(@user) || admin? || !@student.nil?
+    redirect_to(root_url) unless admin? || !@student.nil?
   end
 end

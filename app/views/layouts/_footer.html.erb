@@ -1,19 +1,11 @@
-<footer class="bg-light text-center fixed-bottom mt-lg-5" style="background-color: rgba(0, 0, 0, 0.2);">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <h5 class="text-uppercase">Philippine Countryville College, Inc.</h5>
-        <p>
-          Sayre Highway, Panadtalan, Maramag, Bukidnon
-        </p>
-      </div>
-      <div class="col-sm">
-        <!-- Copyright -->
-        <div class="text-center p-3">
-          © 2023 Copyright
-        </div>
-      </div>
-
-    </div>
+<footer class="nav navbar-nav d-flex flex-wrap justify-content-center align-items-center py-3 fixed-bottom bg-dark text-white" style="background-color: rgba(0, 0, 0, 0.2);">
+  <div class="col-md-4 d-flex align-items-center">
+    <%= link_to '#', class: 'mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1' do %>
+      <%= image_tag image_path('pcc_logo.png'), class: 'd-flex align-text-middle' %>
+      Philippine Countryville College, Inc.
+    <% end %>
+  <div class="nav col-md-4 justify-content-end d-flex">
+      © 2023 Copyright
+  </div>
   </div>
 </footer>

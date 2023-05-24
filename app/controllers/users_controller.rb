@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1 or /users/1.json
   def show
     set_user
-    @students = @user.students.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    @students = @user.students.order(created_at: :desc).paginate(page: params[:page], per_page: 15)
     unless @students.nil?
       @student = @students.first
     end

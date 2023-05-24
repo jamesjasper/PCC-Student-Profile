@@ -52,7 +52,7 @@
 
 body {
   margin: 0;
-  padding-top: 40px;
+  padding-top: 60px;
   color: #2e323c;
   background: #f5f6fa;
   position: relative;
@@ -116,4 +116,17 @@ body {
   border-radius: 5px;
   border: 0;
   margin-bottom: 1rem;
+}
+
+body {
+  padding-top: 130px;
+  margin-bottom: 130px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 130px;
 }
