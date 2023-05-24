@@ -25,13 +25,13 @@
     "popper.js": "^1.16.1",
     "svg2png": "^4.1.1",
     "turbolinks": "^5.2.0",
-    "yargs-parser": "^21.1.1",
-    "yarn-audit-fix": "^9.3.10"
+    "yargs-parser": "^21.1.1"
   },
   "version": "0.1.0",
   "devDependencies": {
     "bootstrap-icons": "^1.10.5",
     "css-loader": "^6.7.4",
+    "html-webpack-plugin": "^5.5.1",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
     "style-loader": "^3.3.3",
