@@ -30,7 +30,7 @@
     "exports-loader": "^4.0.0",
     "file-loader": "^6.2.0",
     "sass": "^1.62.1",
-    "sass-loader": "^13.3.0",
+    "sass-loader": "10.x",
     "style-loader": "^3.3.3"
   },
   "version": "0.1.0",
