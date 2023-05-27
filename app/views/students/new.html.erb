@@ -12,7 +12,9 @@
               <%= render 'shared/error_messages', object: f.object %>
               <%= render 'form', f: f %>
               <div class="text-lg-center">
-                <%= f.submit yield(:button_text), class: "btn btn-primary btn-lg" %>
+                <%= f.button yield(:button_text), class: "btn btn-primary btn-lg" do %>
+                  <i class="bi bi-person-fill-add"></i><%= yield(:button_text) %>
+                <% end %>
               </div>
             <% end %>
           </div>

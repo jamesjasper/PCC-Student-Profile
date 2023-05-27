@@ -23,8 +23,9 @@
               <%= render 'shared/error_messages', object: f.object %>
               <%= render 'form', f: f %>
               <div class="text-lg-center p-3">
-                <%= f.submit yield(:button_text), class: "btn btn-sm btn-primary", value: "update" %>
-                <i class="bi bi-plus-circle"></i>
+                <%= f.button class: "btn btn-sm btn-primary", value: "update" do %>
+                  <i class="bi bi-save-fill"></i> <%= yield(:button_text) %>
+                <% end %>
               </div>
             <% end %>
           </div>
