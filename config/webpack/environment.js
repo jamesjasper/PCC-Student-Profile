@@ -9,27 +9,18 @@ environment.plugins.prepend('Provide',
     })
 )
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const devMode = process.env.NODE_ENV !== "production";
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  module: {
-    rules: [
-      {
-        // If you enable `experiments.css` or `experiments.futureDefaults`, please uncomment line below
-        // type: "javascript/auto",
-        test: /\.(sa|sc|c)ss$/i,
-        use: [
-          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-          "sass-loader",
-        ],
-      },
-    ],
+  entry: 'index.js',
+  output: {
+    path: __dirname + '/dist',
+    filename: 'index_bundle.js'
   },
-  plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
-};
+  plugins: [
+    new HtmlWebpackPlugin()
+  ]
+}
 
 
 // const customConfig = {
