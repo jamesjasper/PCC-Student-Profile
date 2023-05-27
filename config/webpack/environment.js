@@ -9,6 +9,28 @@ environment.plugins.prepend('Provide',
     })
 )
 
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== "production";
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        // If you enable `experiments.css` or `experiments.futureDefaults`, please uncomment line below
+        // type: "javascript/auto",
+        test: /\.(sa|sc|c)ss$/i,
+        use: [
+          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
+      },
+    ],
+  },
+  plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
+};
+
 
 // const customConfig = {
 //     resolve: {

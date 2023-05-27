@@ -1,7 +1,7 @@
 <%= provide(:title, "Edit User") %>
 <%= provide(:button_text, "Update") %>
 
-<div class="container-fluid">
+<div class="container">
   <div class="row d-flex justify-content-center min-vh-100">
     <div class="col-lg-6 p-4">
       <div class="card">
@@ -24,6 +24,7 @@
               <%= render 'form', f: f %>
               <div class="text-lg-center">
                 <%= f.submit yield(:button_text), class: "btn btn-sm btn-primary", value: "update" %>
+                <i class="bi bi-plus-circle"></i>
               </div>
             <% end %>
           </div>

@@ -118,15 +118,33 @@ body {
   margin-bottom: 1rem;
 }
 
-body {
-  padding-top: 130px;
-  margin-bottom: 130px;
-}
 
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
+  font-size: small;
   height: 130px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  border-left: 1px solid #111;
+  border-right: 1px solid #111;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 130px;
+}
+
+#container {
+  color: white;
+  background: #363636;
+  padding: 2rem;
+  background: #363636;
+  flex: 1 1 auto;
+  /*grow vertically*/
+  width: 55%;
+  text-align: center;
 }

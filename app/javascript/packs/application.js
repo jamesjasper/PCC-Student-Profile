@@ -11,7 +11,5 @@ require("channels")
 
 import 'bootstrap/dist/js/bootstrap'
 import "bootstrap/dist/css/bootstrap"
-
 import '../stylesheets/application'
 require("packs/custom")
-// require('bootstrap-icons/font/bootstrap-icons.css');
