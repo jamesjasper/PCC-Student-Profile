@@ -20,6 +20,7 @@
               <%= link_to "Manage Students", students_path, class: "nav-link" %>
             </li>
             <li class="dropdown nav-item d-flex">
+              <%= image_tag current_user.display_thumb_image , class: "rounded-circle img-fluid" if current_user.image.attached? %>
               <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown" role="button">
                  <%= current_user.first_name %><b class="caret"></b>
               </a>

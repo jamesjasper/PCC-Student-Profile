@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :admin_user, only: :destroy
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :show, :new]
+  before_action :correct_user, only: [:edit, :update, :show]
+  before_action :admin_user, only: [:destroy, :new]
 
   # GET /users or /users.json
   def index
     @users = User.paginate(page: params[:page]).per_page(10)
+    if params[:keyword]
+      @users = User.search_by_name(params[:keyword]).paginate(page: params[:page])
+    end
   end
 
   # GET /users/1 or /users/1.json
@@ -76,5 +80,10 @@ class UsersController < ApplicationController
   #check if user.role is adin else redirect to root_url
   def admin_user
     redirect_to root_url unless admin?
+  end
+
+  def correct_user
+    set_user
+    redirect_to(root_url) unless @user == current_user || admin?
   end
 end

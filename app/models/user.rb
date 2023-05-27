@@ -1,14 +1,14 @@
 class User < ApplicationRecord
   has_many :students, dependent: :nullify
   after_commit :add_default_img, on: %i[create update]
-
   attr_accessor :remember_token
+
+  scope :search_by_name, ->(name) { where("CONCAT_WS(' ', first_name, last_name) ILIKE ?", "%#{name}%") }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   has_many :students
   before_save { self.email = email.to_s.downcase }
   validates :username, presence: true, length: { maximum: 20 }, uniqueness: true
-
   validates :email, presence: true, length: { maximum: 50 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
@@ -17,7 +17,6 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :role, presence: true
   has_one_attached :image
-
   has_secure_password
 
   def self.digest(string)
@@ -51,5 +50,13 @@ class User < ApplicationRecord
 
   def display_image
     image.variant(resize_to_limit: [200, 200])
+  end
+
+  def display_thumb_image
+    image.variant(resize_to_limit: [40, 40])
+  end
+
+  def full_name
+    first_name + " " + last_name
   end
 end

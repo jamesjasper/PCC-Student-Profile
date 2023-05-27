@@ -43,6 +43,11 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1 or /students/1.json
   def update
     set_student
+
+    if !@student.user_id.nil?
+      @student.user_id = current_user.id
+    end
+    
     if @student.update(student_params)
       flash[:success] = "Student #{"#{@student.first_name} #{@student.last_name}"} was successfully updated."
       redirect_to student_url

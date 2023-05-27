@@ -1,0 +1,6 @@
+<%= form_with(model: @user, method: 'get', class: "form-inline", local: true) do |f| %>
+  <div class="d-flex d-inline">
+    <%= f.text_field :keyword, class: "form-control p-1", placeholder: "Search user" %>
+    <%= f.submit "Search", class:"btn btn-primary m-auto" %>
+  </div>
+<% end %>

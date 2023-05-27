@@ -8,7 +8,7 @@
         <div class="card-body text-align-center">
               <%= image_tag @user.display_image , class: "rounded-circle img-thumbnail mx-auto d-block" if @user.image.attached? %>
               <div class="card-text">
-                <h5 class="text-lg-center"><%= full_name @user %></h5>
+                <h5 class="text-lg-center"><%= @user.full_name %></h5>
                 <h6 class="text-lg-center"><%= @user.username %></h6>
               </div>
             </div>
@@ -22,7 +22,7 @@
             <%= form_with(model: @user, local: true) do |f| %>
               <%= render 'shared/error_messages', object: f.object %>
               <%= render 'form', f: f %>
-              <div class="text-lg-center">
+              <div class="text-lg-center p-3">
                 <%= f.submit yield(:button_text), class: "btn btn-sm btn-primary", value: "update" %>
                 <i class="bi bi-plus-circle"></i>
               </div>

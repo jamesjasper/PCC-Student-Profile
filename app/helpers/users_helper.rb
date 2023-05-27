@@ -1,4 +1,5 @@
 module UsersHelper
+  
   def gravatar_for(email, options = { size: 80 })
     size = options[:size]
     gravatar_id = Digest::MD5::hexdigest(email.downcase)
@@ -6,7 +7,4 @@ module UsersHelper
     image_tag(gravatar_url, class: "gravatar img-fluid")
   end
 
-  def full_name (user)
-    user.first_name + " " + user.last_name
-  end
 end

@@ -58,4 +58,8 @@ class Student < ApplicationRecord
   def display_image
     image.variant(resize_to_limit: [80, 80])
   end
+
+  def full_name
+    first_name + " " + last_name
+  end
 end
